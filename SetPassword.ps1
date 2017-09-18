@@ -104,9 +104,12 @@ while($counter -lt $PasswordEntireStates.Count){
     ### END: The scenario when the pressed keys are taken key up state one after the other ###
 }
 
+# $PasswordFinalStates | Export-Csv .\password.csv
 
+rm .\password.txt
 foreach($PasswordFinalState in $PasswordFinalStates){
-    Write-Host $PasswordFinalState
+    $PasswordFinalState.Count | Out-File .\password.txt -Append
+    $PasswordFinalState | Out-File password.txt -Append
 }
 
 ##########################################################################################
